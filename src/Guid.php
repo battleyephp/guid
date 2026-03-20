@@ -54,4 +54,12 @@ final readonly class Guid implements Stringable
     {
         return $this->value;
     }
+
+    /**
+     * Check if the other GUID is the same.
+     */
+    public function equals(self $other): bool
+    {
+        return $this->value === $other->value;
+    }
 }

@@ -28,3 +28,13 @@ it('throws an exception with invalid string', function () {
         new Guid('invalid');
     })->toThrow(InvalidArgumentException::class);
 });
+
+it('checks same GUIDs', function () {
+    $first = new Guid('a0d1158281d8639495a1908b5a802470');
+    $second = new Guid('a0d1158281d8639495a1908b5a802470');
+
+    expect($first->equals($second))
+        ->toBeTrue()
+        ->and($second->equals($first))
+        ->toBeTrue();
+});
