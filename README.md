@@ -9,7 +9,7 @@ It also can be converted from SteamID64.
 
 ## Installation
 
-> **Requires [PHP 8.2+](https://php.net/releases/)**
+> **Requires [PHP 8.3+](https://php.net/releases/)**
 
 You can install the package via composer:
 
