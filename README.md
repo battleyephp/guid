@@ -46,13 +46,13 @@ $guid = new Guid('a0d1158281d8639495a1908b5a802470');
 > Note: It can contain only valid MD5 hash, otherwise it throws an exception.
 
 ```php
+use BattlEye\Guid\Exceptions\InvalidGuidException;
 use BattlEye\Guid\Guid;
-use InvalidArgumentException;
 
 try {
     Guid::fromString('invalid');
-} catch (InvalidArgumentException) {
-    // Invalid GUID
+} catch (InvalidGuidException) {
+    // ...
 }
 ```
 
