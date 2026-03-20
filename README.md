@@ -56,6 +56,19 @@ try {
 }
 ```
 
+Shortcut method to check if GUIDs are the same:
+
+```php
+use BattlEye\Guid\Guid;
+
+$one = Guid::fromString('a0d1158281d8639495a1908b5a802470');
+$two = Guid::fromSteamId64(76561198066209976);
+
+if ($one->equals($two)) {
+    // they are the same...
+}
+```
+
 ## Testing
 
 ```bash
