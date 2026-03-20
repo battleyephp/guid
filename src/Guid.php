@@ -4,16 +4,22 @@ declare(strict_types=1);
 
 namespace BattlEye\Guid;
 
-use InvalidArgumentException;
+use BattlEye\Guid\Exceptions\InvalidGuidException;
 use Stringable;
 
 final readonly class Guid implements Stringable
 {
-    public function __construct(private string $value)
+    private string $value;
+
+    public function __construct(string $value)
     {
-        if (in_array(preg_match('/^[a-f0-9]{32}$/', $this->value), [0, false], true)) {
-            throw new InvalidArgumentException('Invalid GUID');
+        $value = mb_strtolower($value);
+
+        if (! preg_match('/^[a-f0-9]{32}$/', $value)) {
+            throw new InvalidGuidException("Value \"$value\" is not a valid GUID.");
         }
+
+        $this->value = $value;
     }
 
     /**
